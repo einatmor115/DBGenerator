@@ -1,0 +1,32 @@
+﻿<Window x:Class="WPF_Project_Generator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Project_Generator"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="213*"/>
+            <ColumnDefinition Width="581*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock HorizontalAlignment="Left" Height="25" Margin="81,55,0,0" TextWrapping="Wrap" Text="Arline Companies" VerticalAlignment="Top" Width="107"/>
+        <TextBlock HorizontalAlignment="Left" Height="25" Margin="81,85,0,0" TextWrapping="Wrap" Text="Customers" VerticalAlignment="Top" Width="107"/>
+        <TextBlock HorizontalAlignment="Left" Height="25" Margin="81,115,0,0" TextWrapping="Wrap" Text="Flight Per Company" VerticalAlignment="Top" Width="107"/>
+        <TextBlock HorizontalAlignment="Left" Height="25" Margin="81,145,0,0" TextWrapping="Wrap" Text="Tickets Per Customer" VerticalAlignment="Top" Width="146" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Height="25" Margin="81,175,0,0" TextWrapping="Wrap" Text="Countries" VerticalAlignment="Top" Width="146" RenderTransformOrigin="0.493,3.067" Grid.ColumnSpan="2"/>
+
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="30.333,55,0,0" TextWrapping="Wrap" Text="{Binding AirLineTB, Mode=TwoWay}" VerticalAlignment="Top" Width="160" Grid.Column="1"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="30.333,85,0,0" TextWrapping="Wrap" Text="{Binding CountryTB, Mode=TwoWay}" VerticalAlignment="Top" Width="160" Grid.Column="1"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="30.333,115,0,0" TextWrapping="Wrap" Text="{Binding FlightTB, Mode=TwoWay}" VerticalAlignment="Top" Width="160" Grid.Column="1"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="30.333,145,0,0" TextWrapping="Wrap" Text="{Binding TicketsTB, Mode=TwoWay}" VerticalAlignment="Top" Width="160" Grid.Column="1"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="30.333,175,0,0" TextWrapping="Wrap" Text="{Binding CustomerTB, Mode=TwoWay}" VerticalAlignment="Top" Width="160" Grid.Column="1"/>
+
+        <Button Command="{Binding MyDelegate}" Content="Add To DB" HorizontalAlignment="Left" Height="30" Margin="258.333,80,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1"/>
+        <Button Command="{Binding MyDeleteDelegate}" Content="Replace DB" HorizontalAlignment="Left" Height="30" Margin="258.333,145,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1"/>
+
+        <ProgressBar x:Name="MyProgressBar" HorizontalAlignment="Left" Height="28" Margin="81,249,0,0" VerticalAlignment="Top" Width="490" Grid.ColumnSpan="2" Value="{Binding  Status, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock x:Name="MyPercentageTB" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="100.333,253,0,0" TextWrapping="Wrap" Text="{Binding ElementName=MyProgressBar, Path=Value, StringFormat={} {0} % complete}" VerticalAlignment="Top" Width="90"/>
+    </Grid>
+</Window>
